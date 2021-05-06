@@ -9,6 +9,16 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+function isInArray(element, array) {
+    var check = false;
+    for (var i = 0; i < array.lenght; i++) {
+        if (element == array[i]) {
+            check = true;
+        }
+    }
+    return check;
+}
 // FINE FUNZIONI
 
 // VARIABILI
@@ -21,8 +31,10 @@ var numeroPrompt;
 for (var i = 0; i < 5; i++) {
     numeroCasuale = getRandomNumber(1, 100);
     console.log(numeroCasuale);
-    listaNumeriCasuali.push(numeroCasuale);
-    console.log(listaNumeriCasuali);
+    if (!isInArray(numeroCasuale, listaNumeriCasuali)) {
+        listaNumeriCasuali.push(numeroCasuale);
+        console.log(listaNumeriCasuali);
+    }
 }
 alert("Memorizza questi 5 numeri: " + listaNumeriCasuali);
 
